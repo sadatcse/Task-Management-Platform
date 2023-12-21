@@ -4,13 +4,12 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 import {FaUser } from 'react-icons/fa';
 import { AuthContext } from '../../providers/AuthProvider';
-
+import logo from '../../assets/logo.png'
 
 
 
 const Dashboard = () => {
 
-  const companyLogo = "";
   const navigate = useNavigate();
   const { user, logOut } = useContext(AuthContext);
  
@@ -40,30 +39,65 @@ const Dashboard = () => {
 
 
   return (
-    <div className='flex flex-col h-screen'>
+    <div className="flex flex-col h-screen">
       <header className="bg-gray-800 text-white py-4 flex justify-center items-center">
-        <img src={companyLogo} alt="Company Logo" className="h-12 mr-4" />
+        <img src={logo} alt="Company Logo" className="h-12 mr-4" />
+        
       </header>
 
-      <div className='flex flex-1'>
-        <div className='w-64 min-h-full bg-gradient-to-b from-orange-400 to-orange-600 p-4'>
+      <div className="flex flex-1 bg-gray-100">
+        <div className="w-64 min-h-5/6 bg-white m-4 p-4 rounded-lg shadow-md">
           <div className="flex items-center justify-between mb-6">
-
+            {/* Additional content or features can be added here */}
           </div>
-          <ul className='menu'>
-
-            {dashboardOptions}
-            <li><NavLink to="/dashboard/profile" className="flex items-center py-2 px-4 text-white hover:bg-orange-500"><FaUser className="mr-2" /> My Profile</NavLink></li>
-            <li><NavLink to="/" onClick={handleLogOut} className="flex items-center py-2 px-4 text-white hover:bg-orange-500"><FaUser className="mr-2" /> Logout</NavLink></li>
-
+          <ul className="menu">
+          <li className='mb-2'>
+              <NavLink
+                to="/dashboard/overview"
+                className="flex items-center py-2 px-4 text-black	 hover:bg-slate-200	"
+              >
+                <FaUser className="mr-2" /> Task overview
+              </NavLink>
+            </li>
+            <li className='mb-2'>
+              <NavLink
+                to="/dashboard/newtasks"
+                className="flex items-center py-2 px-4 text-black	 hover:bg-slate-200	"
+              >
+                <FaUser className="mr-2" /> Create New Tasks
+              </NavLink>
+            </li>
+            <li className='mb-2'>
+              <NavLink
+                to="/dashboard/alltask"
+                className="flex items-center py-2 px-4 text-black	 hover:bg-slate-200	"
+              >
+                <FaUser className="mr-2" /> View All Tasks
+              </NavLink>
+            </li>
+            <li className='mb-2'>
+              <NavLink
+                to="/dashboard/profile"
+                className="flex items-center py-2 px-4 text-black	 hover:bg-slate-200	"
+              >
+                <FaUser className="mr-2" /> My Profile
+              </NavLink>
+            </li>
+            <li>
+              <button
+                onClick={handleLogOut}
+                className="flex items-center py-2 px-4 text-black	 hover:bg-slate-200	"
+              >
+                <FaUser className="mr-2" /> Logout
+              </button>
+            </li>
           </ul>
         </div>
-        <div className='flex-1 p-4'>
-          <Outlet></Outlet>
+        <div className="flex-1 p-4">
+          <Outlet />
         </div>
       </div>
     </div>
   );
 };
-
 export default Dashboard;

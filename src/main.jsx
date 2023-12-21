@@ -24,6 +24,12 @@ import MyProfile from './components/Page/Dashboard/Universal/MyProfile';
 import PrivateRoot from './components/Root/PrivateRoot';
 import AuthProvider from './providers/AuthProvider';
 import Home from './components/Page/Home';
+import Aboutus from './components/Page/Aboutus';
+import Article from './components/Page/Article ';
+import Clients from './components/Page/Clients';
+import Taskoverview from './components/Page/Dashboard/User/Taskoverview';
+import Createnewtasks from './components/Page/Dashboard/User/Createnewtasks';
+import ViewAllTask from './components/Page/Dashboard/User/ViewAllTask';
 const queryClient = new QueryClient();
 
 
@@ -47,6 +53,19 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register></Register>
       },
+      {
+        path: '/about',
+        element: <Aboutus></Aboutus>
+      },
+      {
+        path: '/article',
+        element: <Article></Article>
+      },
+      {
+        path: '/clients',
+        element: <Clients></Clients>
+      },
+       
        
     ]
   },
@@ -58,6 +77,18 @@ const router = createBrowserRouter([
       {
         path:'profile',
         element:<PrivateRoot><MyProfile></MyProfile></PrivateRoot>
+      },
+      {
+        path:'overview',
+        element:<PrivateRoot><Taskoverview></Taskoverview></PrivateRoot>
+      },
+      {
+        path:'newtasks',
+        element:<PrivateRoot><Createnewtasks></Createnewtasks></PrivateRoot>
+      },
+      {
+        path:'alltask',
+        element:<PrivateRoot><ViewAllTask></ViewAllTask></PrivateRoot>
       },
  
     ]
