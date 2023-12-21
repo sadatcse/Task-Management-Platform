@@ -2,9 +2,16 @@
 import React, { useContext } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
-import {FaUser } from 'react-icons/fa';
+
 import { AuthContext } from '../../providers/AuthProvider';
 import logo from '../../assets/logo.png'
+
+// Import React icon 
+import {FaUser ,FaTasks  } from 'react-icons/fa';
+import { GrOverview } from "react-icons/gr";
+import { MdOutlineViewCompact } from "react-icons/md";
+import { IoIosLogOut } from "react-icons/io";
+
 
 
 
@@ -56,7 +63,7 @@ const Dashboard = () => {
                 to="/dashboard/overview"
                 className="flex items-center py-2 px-4 text-black	 hover:bg-slate-200	"
               >
-                <FaUser className="mr-2" /> Task overview
+                <GrOverview className="mr-2" /> Task overview
               </NavLink>
             </li>
             <li className='mb-2'>
@@ -64,7 +71,7 @@ const Dashboard = () => {
                 to="/dashboard/newtasks"
                 className="flex items-center py-2 px-4 text-black	 hover:bg-slate-200	"
               >
-                <FaUser className="mr-2" /> Create New Tasks
+                <FaTasks  className="mr-2" /> Create New Tasks
               </NavLink>
             </li>
             <li className='mb-2'>
@@ -72,7 +79,7 @@ const Dashboard = () => {
                 to="/dashboard/alltask"
                 className="flex items-center py-2 px-4 text-black	 hover:bg-slate-200	"
               >
-                <FaUser className="mr-2" /> View All Tasks
+                <MdOutlineViewCompact  className="mr-2" /> View All Tasks
               </NavLink>
             </li>
             <li className='mb-2'>
@@ -88,7 +95,7 @@ const Dashboard = () => {
                 onClick={handleLogOut}
                 className="flex items-center py-2 px-4 text-black	 hover:bg-slate-200	"
               >
-                <FaUser className="mr-2" /> Logout
+                <IoIosLogOut  className="mr-2" /> Logout
               </button>
             </li>
           </ul>
