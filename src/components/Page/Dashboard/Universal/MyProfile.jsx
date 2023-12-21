@@ -46,14 +46,14 @@ function MyProfile() {
 
       await Swal.fire({
         icon: 'success',
-        title: 'Image uploaded successfully!',
-        text: `Image URL: ${res.data.data.url}`,
+        title: 'Image Change successfully!',
+        text: `Please Update final Profile`,
       });
     } catch (error) {
 
       await Swal.fire({
         icon: 'error',
-        title: 'Error uploading image',
+        title: 'Error Update image',
         text: error.message, 
       });
     }

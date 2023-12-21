@@ -4,7 +4,6 @@ import { AuthContext } from '../../providers/AuthProvider';
 import toast from 'react-hot-toast';
 import { FiLock, FiMail, } from 'react-icons/fi';
 import { FcGoogle } from 'react-icons/fc';
-import axios from 'axios';
 import { Helmet } from 'react-helmet-async';
 import useAxiosPublic from "../Hook/useAxiosPublic";
 
@@ -72,7 +71,7 @@ const Login = () => {
             <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-lg">
                 <h1 className="text-3xl font-bold mb-8 text-center">Login now!</h1>
                 <Helmet>
-                <title>Login |Sadat Fast Courier</title>
+                <title>Login |SCC TASKMAN </title>
                 </Helmet>
                 <form className="space-y-4">
                     <div className="space-y-1">
