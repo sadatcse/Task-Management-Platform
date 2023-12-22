@@ -1,5 +1,5 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 
@@ -42,6 +42,16 @@ const Dashboard = () => {
         console.error(error);
       });
   };
+
+  const navigateRole = () => {
+    useEffect(() => {
+      if (1 == 1) {
+        navigate('/dashboard/overview');
+      }
+    }, [navigate]);
+  };
+
+  navigateRole(1);
 
 
 

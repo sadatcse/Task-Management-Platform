@@ -4,8 +4,9 @@ import { RiDeleteBin6Line, RiEdit2Line } from 'react-icons/ri';
 import UseAxioSecure from '../../../Hook/UseAxioSecure';
 import Swal from "sweetalert2";
 import useTask from "../../../Hook/useTask";
+import { useNavigate } from 'react-router-dom';
 const ViewAllTask = () => {
-
+  const navigate = useNavigate();
     const [tasks, refetch] = useTask();
     console.log(tasks);
     const axiosSecure = UseAxioSecure();
@@ -32,7 +33,6 @@ const ViewAllTask = () => {
                     refetch();
                       Swal.fire('Deleted!', 'Your task has been deleted.', 'success');
                       console.log('Task deleted successfully:', taskId);
-                      setCount(tasks.length); 
                   })
                   .catch(error => {
                       console.error('Error deleting task:', error);
@@ -46,8 +46,7 @@ const ViewAllTask = () => {
   };
 
     const handleEdit = (taskId) => {
-        // Implement your edit logic, such as redirecting to an edit page
-        console.log('Edit task with ID:', taskId);
+        navigate(`/dashboard/updatetask/${taskId}`);
     };
 
     const updatetaskData = () => {

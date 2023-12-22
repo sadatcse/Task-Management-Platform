@@ -1,6 +1,6 @@
 import axios from 'axios';
 export const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://task-management-platform-server-zeta.vercel.app'
 })
 const UseAxioSecure = () => {
     return axiosSecure;

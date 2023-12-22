@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import {HelmetProvider } from 'react-helmet-async';
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 // Import React Router dom 
 
 import {
@@ -30,6 +32,7 @@ import Clients from './components/Page/Clients';
 import Taskoverview from './components/Page/Dashboard/User/Taskoverview';
 import Createnewtasks from './components/Page/Dashboard/User/Createnewtasks';
 import ViewAllTask from './components/Page/Dashboard/User/ViewAllTask';
+import UpdateTask from './components/Page/Dashboard/User/UpdateTask';
 const queryClient = new QueryClient();
 
 
@@ -90,6 +93,12 @@ const router = createBrowserRouter([
         path:'alltask',
         element:<PrivateRoot><ViewAllTask></ViewAllTask></PrivateRoot>
       },
+      {
+        path:'updatetask/:id',
+        element:<PrivateRoot><UpdateTask></UpdateTask></PrivateRoot>,
+        loader: ({ params }) => fetch(`https://task-management-platform-server-zeta.vercel.app/tasks/${params.id}`) ,
+        
+      },
  
     ]
   },
@@ -97,6 +106,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <DndProvider backend={HTML5Backend}>
   <QueryClientProvider client={queryClient}>
   <HelmetProvider>
  <AuthProvider>
@@ -104,5 +114,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
    </AuthProvider>
    </HelmetProvider>
    </QueryClientProvider>
+   </DndProvider>
    </React.StrictMode>,
 )
