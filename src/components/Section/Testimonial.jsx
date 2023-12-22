@@ -2,7 +2,7 @@ import React from 'react';
 
 const Testimonial = ({ testimonial }) => {
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 mb-8">
+    <div className="bg-white shadow-md rounded-lg p-6 mx-4 mb-8">
       <p className="text-gray-700 mb-4">{testimonial.text}</p>
       <div className="flex items-center">
         <img
